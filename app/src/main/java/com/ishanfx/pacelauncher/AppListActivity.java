@@ -44,7 +44,7 @@ public class AppListActivity extends Activity {
         for(ResolveInfo ri:availableActivities){
             AppDetails app = new AppDetails();
             app.label = ri.loadLabel(manager);
-            app.name = ri.activityInfo.packageName;
+            app.name = ri.activityInfo.name;
             app.icon = ri.activityInfo.loadIcon(manager);
             apps.add(app);
         }
@@ -67,8 +67,6 @@ public class AppListActivity extends Activity {
                 TextView appLabel = (TextView)convertView.findViewById(R.id.item_app_label);
                 appLabel.setText(apps.get(position).label);
 
-                TextView appName = (TextView)convertView.findViewById(R.id.item_app_name);
-                appName.setText(apps.get(position).name);
 
                 return convertView;
             }
